@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     public int contador;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mostrar(){
-        TextView resultado = (TextView)findViewById(R.id.contadorPulsaciones);
-        resultado.setText("Count: " + contador);
+        TextView resultado = (TextView)findViewById(R.id.contadorTexto);
+        resultado.setText(""  + contador);
     }
 }

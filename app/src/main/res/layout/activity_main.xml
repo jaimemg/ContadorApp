@@ -1,61 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/contadorPulsaciones"
-        android:layout_width="133dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="64dp"
-        android:text="Count:"
-        android:textSize="30sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="-16dp">
 
-    <Button
-        android:id="@+id/res"
-        android:layout_width="113dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginBottom="331dp"
-        android:text="Reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="resetear"
-        />
+        <TextView
+            android:id="@+id/Titulo"
+            android:layout_width="133dp"
+            android:layout_height="74dp"
+            android:text="Count:"
+            android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/incr"
-        android:layout_width="113dp"
-        android:layout_height="66dp"
-        android:layout_above="@id/res"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginBottom="445dp"
-        android:text="Increase"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="incrementar"
-        />
+        <TextView
+            android:id="@+id/contadorTexto"
+            android:layout_width="90dp"
+            android:layout_height="59dp"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/decr"
-        android:layout_width="113dp"
-        android:layout_height="66dp"
-        android:layout_below="@id/res"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginBottom="220dp"
-        android:text="Decrease"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="decrementar"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/incr"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@id/res"
+            android:onClick="incrementar"
+            android:text="+"
+            android:textSize="70dp"/>
+
+        <android.widget.Space
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            />
+
+        <Button
+            android:id="@+id/decr"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/res"
+            android:onClick="decrementar"
+            android:text="-"
+            android:textSize="70dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/res"
+            android:layout_width="113dp"
+            android:layout_height="66dp"
+            android:onClick="resetear"
+            android:text="Reset" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
