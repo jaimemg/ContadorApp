@@ -20,6 +20,7 @@
             android:id="@+id/Titulo"
             android:layout_width="133dp"
             android:layout_height="74dp"
+            android:gravity="center"
             android:text="Count:"
             android:textSize="30sp" />
 
@@ -27,6 +28,7 @@
             android:id="@+id/contadorTexto"
             android:layout_width="90dp"
             android:layout_height="59dp"
+            android:gravity="center"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -69,12 +71,32 @@
         android:layout_height="match_parent"
         android:gravity="bottom|center_horizontal"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/res"
-            android:layout_width="113dp"
+            android:layout_width="59dp"
             android:layout_height="66dp"
+            android:layout_weight="5"
             android:onClick="resetear"
             android:text="Reset" />
+
+        <EditText
+            android:id="@+id/initialVal"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:cursorVisible="false"
+
+            android:gravity="center_horizontal"
+            android:hint="0"
+            android:inputType="numberSigned" />
+
+        <CheckBox
+            android:id="@+id/negative"
+            android:layout_width="21dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Negatives" />
     </LinearLayout>
 
 
