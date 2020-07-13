@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         textoResultado = (TextView)findViewById(R.id.contadorTexto);
         contador = 0;
 
+        textoResultado.setText(""+ contador);
+
         EventoTeclado teclado = new EventoTeclado();
         EditText n_reseteo = (EditText) findViewById(R.id.initialVal); // Elemento EditText a la escucha
         n_reseteo.setOnEditorActionListener(teclado);
@@ -59,6 +61,22 @@ public class MainActivity extends AppCompatActivity {
         textoResultado.setText("" + contador);
 
     }
+
+    public void onSaveInstanceState(Bundle state){
+
+        state.putInt("cuenta", contador);   //creamos la clave y guardamos el entero en el bundle
+        super.onSaveInstanceState(state);   //guardamos el estado del bundle
+
+    }
+
+    public void onRestoreInstanceState (Bundle state){
+
+        super.onRestoreInstanceState(state);    //recuperamos el estado del bundle
+        contador = state.getInt("cuenta");  //guardamos el valor de la clave en contador
+
+        textoResultado.setText("" +contador);
+    }
+
     public void resetear(View vista){
         EditText valorInicial = (EditText) findViewById(R.id.initialVal);
         try {
