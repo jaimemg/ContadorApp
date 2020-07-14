@@ -2,7 +2,12 @@ package com.example.video_11;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onSaveInstanceState(Bundle state){
+    /*public void onSaveInstanceState(Bundle state){  //persistencia de datos al girar el dispositivo y al mantener la aplicación en segundo plano
 
         state.putInt("cuenta", contador);   //creamos la clave y guardamos el entero en el bundle
         super.onSaveInstanceState(state);   //guardamos el estado del bundle
@@ -75,7 +80,29 @@ public class MainActivity extends AppCompatActivity {
         contador = state.getInt("cuenta");  //guardamos el valor de la clave en contador
 
         textoResultado.setText("" +contador);
+    }*/
+
+    public void onPause (){
+
+        super.onPause();
+        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);     //creamos nuestra SharedPreference
+        SharedPreferences.Editor miEditor = prefs.edit();   //la hacemos editabe
+
+        miEditor.putInt("cuenta", contador);    //almacenamos el valor que queremos
+
+        miEditor.commit();      //guardamos
     }
+
+    public void onResume (){
+        super.onResume();
+        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+
+        contador = prefs.getInt("cuenta", 0);   //recuperamos el valor almacenado
+
+        textoResultado.setText("" + contador);      //actualizamos el contador
+
+    }
+
 
     public void resetear(View vista){
         EditText valorInicial = (EditText) findViewById(R.id.initialVal);
